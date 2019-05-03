@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tabs from './Tabs';
 import Cards from './Cards';
+import PropTypes from 'prop-types';
 
 // Importing our tab and card data. No need to change anything here.
 import { tabData, cardData } from '../../data';
@@ -60,4 +61,16 @@ export default class Content extends Component {
       </div>
     );
   }
+}
+
+Content.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.string.isRequired),
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      headline: PropTypes.string.isRequired,
+      tab: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
+    })
+  )
 }
